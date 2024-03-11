@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+        body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/bg-main.jpg");
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        }
+        .sidenav {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        background-color: #c5d9f8;
+        overflow-x: hidden;
+        padding-top: 20px;
+        }
+
+            .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 25px;
+            font-weight: 700;
+            color: #1d0355;
+            display: block;
+            }
+
+            .sidenav a:hover {
+
+            color: #0e21f0;
+
+            }
+
+            .sidenav img {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200px; 
+            height: 250px;
+            }
+
+            .main {
+                margin-left: 200px;
+                font-size: 28px;
+                padding: 0px 10px;
+                background-color: #1d0355;
+            }
+
+            
+            .main h2{
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-weight: 700;
+                color: #c5d9f8;
+                background-color:#1d0355;
+                padding: 25px;
+                text-align: center;
+            }
+
+            .main h1{
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-weight: 700;
+                color: #c5d9f8;
+                background-color:#1d0355;
+                text-align: center;
+                
+            }
+
+            .main h4{
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-weight: 600;
+                color: #c5d9f8;
+                background-color:#1d0355;
+                text-align: center;
+                
+            } 
+            .main h3{
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-weight: 700;
+                color: #c5d9f8;
+                background-color:#1d0355;
+                text-align: center;
+                margin: 0;
+                margin-top: 2%;
+                margin-bottom: 1%;
+            }
+
+            .main p{
+                margin: 0;
+                background-color: #1d0355;
+                padding: 0;
+                color: #c5d9f8;
+                font-size: 16px;
+                font-weight: 500;
+                
+            }
+            .main table{
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-weight: 700;
+                color: #c5d9f8;
+                border: 1px solid #c5d9f8;
+            }
+            .main table td{
+                border: 1px solid #c5d9f8;
+
+            }
+            
+
+.top-buttons-container {
+    margin-left: 20px;
+  position: fixed;
+  top: 40%;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: none;
+  justify-content: center;
+}
+
+.top-button {
+font-size: 35px;
+margin-left: 20px;
+  padding: 10px 20px;
+  background-color: #333333;
+  color: #c5d9f8;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.top-button:hover {
+  background-color: #444;
+}
+
+#home-ref{
+  background-color: aliceblue;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="top-buttons-container">
+        <button class="top-button" id="parallelLes">PARALLELOGRAM</button>
+        <button class="top-button" id="similarLes">SIMILARITIES</button>
+        <button class="top-button" id="proporLes">PROPORTIONS</button>
+      </div>
+
+    <div class="sidenav">
+        <button><a href="index.html">BACK</a></button>
+        <a href="#" id="lessonLink">LESSON</a>
+        <a href="assessment.html" >ASSESSMENT</a>
+        <a href="#" id="callref">REFERENCES</a>
+        <a id="play-music-button">Play Music</a>
+        <img src="Logo.jpg" alt=""/>
+    </div>
+
+    <div class="main">
+        <h2 class="main-h2">WELCOME TO GEO-LEARN</h2>
+    </div>
+
+</style>
+    <script>
+        const callref = document.getElementById("callref");
+        const mainContent2 = document.querySelector(".main");
+        const refContent = `
+        <h2>References</h2>
+        <ul id="home-ref">
+          <li id="refs"><a href="https://www.scribd.com/document/503248580/Math-9-Q3-Module-1-Quadrilaterals">Quadrilaterals Module</a></li>
+          <li id="refs"><a href="https://www.studocu.com/ph/document/mabini-national-high-school/secondary-education/math9-q3-module-3-thank-you/31011964">Secondary Education: Math Module 3</a></li>
+          <li id="refs"><a href="https://www.studocu.com/ph/document/st-vincents-college-incorporated/junior-high/math9-q3-module-4/55393857">Junior High: Math Module 4</a></li>
+          <li id="refs"><a href="https://www.scribd.com/document/569670630/Mathematics-9-Q3-Mod5-Proving-Theorems-on-the-Different-Kinds-of-Parallelogram-V3">Proving Theorems on Parallelograms</a></li>
+          <li id="refs"><a href="https://depedtambayan.net/wp-content/uploads/2022/01/MATH9-Q3-MODULE7.pdf">Mathematics 9: Module 7</a></li>
+          <li id="refs"><a href="https://www.scribd.com/document/517788006/Math9-Q3-Mod8-Problems-InvolvingParallelogramsTrapezoidsAndKites-V3">Problems Involving Parallelograms, Trapezoids, and Kites</a></li>
+        </ul>
+        }   
+        `;
+        callref.addEventListener("click", () => {
+            mainContent2.innerHTML = refContent;
+        });
+      
+        const lessonLink = document.getElementById("lessonLink");
+        const mainContent = document.querySelector(".main");
+        const lessonContent = `
+        <style>
+        .top-buttons-container {
+        display: flex;
+        }   
+        `;
+        lessonLink.addEventListener("click", () => {
+            mainContent.innerHTML = lessonContent;
+        });
+
+        const parallelLes = document.getElementById("parallelLes");
+        const parallelogramlesson = document.querySelector(".main");
+        const getparallelLes = `
+        <div class="lesson-containter">
+            <p>
+                <h1>Parallelogram</h1>
+    <h3>Module 1: Conditions that Make a Quadrilateral a Parallelogram. </h3>
+    <img <p>
+    <p>A quadrilateral is a closed-plane figure consisting of four line segments or sides.</p>
+    <p> Examples are: Parallelogram, Rectangle, Square, Rhombus, and Kite.</p>
+    <p> A parallelogram is a quadrilateral with two pairs of opposite sides that are parallel.</p>
+    <h3>CONDITIONS THAT MAKE A QUADRILATERAL A PARALLELOGRAM </h3>
+    <p> 1. A quadrilateral is a parallelogram if both pairs of opposite sides are congruent.</p>
+    <img src="https://i.postimg.cc/NMkptRKm/1.png">
+    <p> In the figure, the pairs of opposite sides are 𝐴𝑅̅̅̅̅ & 𝐶𝐸̅̅̅̅; 𝐴𝐶̅̅̅̅ & ̅𝑅𝐸̅̅̅. Then, measure of 𝐴𝑅̅̅̅̅ = 6.40𝑐𝑚 𝑎𝑛𝑑 measure of 𝐶𝐸̅̅̅̅ = 6.40𝑐𝑚; also measure of 𝐴𝐶̅̅̅̅ = 3.43𝑐𝑚 𝑎𝑛𝑑 measure of ̅𝑅𝐸̅̅̅ = 3.43𝑐𝑚. It shows that the pairs of opposite side of CARE are congruent. Therefore, quadrilateral CARE is a parallelogram.
+    <p> 2. A quadrilateral is a parallelogram if both pairs of opposite angles are congruent.</p>
+    <img src="https://i.postimg.cc/76wCTWVG/2.png">
+    <p>In the figure, the pairs of opposite angles are < 𝐴 𝑎𝑛𝑑 < 𝐻; < 𝑀 𝑎𝑛𝑑 < 𝑇. Then, measure of < 𝐴=120° 𝑎𝑛𝑑 measure of < 𝐻=120°; also measure of < 𝑀=60° and measure of < 𝑇=60°. It shows that the pairs of opposite angles of MATH are congruent. Therefore, quadrilateral MATH is a parallelogram. </p>
+
+        <p> 3. A quadrilateral is a parallelogram if both pairs of consecutive angles are supplementary. </p>
+        <img src="https://i.postimg.cc/TPgxX2ng/3.png">
+        <p>Supplementary angles are two angles having a sum of 180°. It shows that pairs of consecutive angles of MATH are supplementary. Therefore, quadrilateral MATH is a parallelogram. </p>
+
+        <p>4. A quadrilateral is a parallelogram if the diagonals bisect each other.</p>
+        <img src="https://i.postimg.cc/HxvBZXj2/4.png">
+        <p>A diagonal is a line segment joining two nonconsecutive vertices of a polygon. Bisect means to divide into two equal parts.
+
+          A line segment bisects another line segment if it divides the segment into two congruent parts.</p>
+        <p> 5. A quadrilateral is a parallelogram if each diagonal divides a parallelogram into two congruent triangles.</p>
+        <img scr="https://i.postimg.cc/761TbkrT/5.png">
+        <p> Two triangles are congruent if their corresponding sides are equal in length, and their corresponding angles are equal in measure. </p>
+
+        <p>6. A quadrilateral is a parallelogram if one pair of opposite sides are both congruent and parallel.</p>
+        <img src="https://i.postimg.cc/GtxhLrNg/6.png">
+        <p>In the figure, the pair of opposite side of ROSE is 𝑂𝑆 ̅̅̅̅ 𝑎𝑛𝑑 ̅𝑅𝐸̅̅̅ and they are congruent and parallel. Therefore, quadrilateral ROSE is a parallelogram.</p>
+
+        <h3> Module 2: Using Properties to Find the Measures of Angles, Sides and Other Quantities Involving Parallelograms. </h3>
+        <h3>Properties of Parallelogram </h3>
+        <p>1. In a parallelogram, any two opposite sides are congruent. </p>
+        <p>2. In a parallelogram, any two opposite angles are congruent. </p>
+        <p>3. In a parallelogram, any two consecutive angles are supplementary. </p>
+        <p>4. The diagonals of a parallelogram bisect each other. </p>
+        <p>5. A diagonal of a parallelogram forms two congruent triangles.</p>
+
+        <p> We are going to use these properties to find the measures of angles, sides, and other quantities of a parallelogram.</p>
+        <p>Examples: </p>
+        <p>1. Given ABCD as shown below. Find the measure of side 𝐴𝐷̅̅̅̅.</P>
+        <img src="https://i.postimg.cc/ZR24JnVL/7.png">
+        <p> Since the opposite side of 𝐴𝐷̅̅̅̅ is 𝐵𝐶̅̅̅̅. And measure of 𝐵𝐶̅̅̅̅ = 6.2cm, therefore 𝑨𝑫̅̅̅̅ = 6.2cm using parallelogram property 1. </p>
+
+        <p>2. Below is the parallelogram ABCD. Consider each given information and answer the questions that follow.</p>
+        <img src="https://i.postimg.cc/G3JtRJv7/8.png">
+        <p>Given: 𝐴𝐵̅̅̅ = (3x – 5)cm
+          𝐵𝐶̅̅̅̅ = (2y – 7)cm
+          𝐶𝐷̅̅̅̅ = (𝑥 + 7)𝑐𝑚
+          A𝐷̅̅̅̅ = (y+3)cm.</p>
+
+        <p>A. What is the value of x?
+          Solution: ̅𝐴𝐵̅̅̅ ≅ 𝐶𝐷̅̅̅̅ -------- Use parallelogram property 1 </p>
+        <p>3x – 5 = x + 7
+          (3x -x) (– 5 + 5)= (x – x) (+ 7 + 5)
+          2x = 12
+          2 2
+          x = 6</p>
+
+        <p>B. What is the value of y?
+          Solution: 𝐴𝐷̅̅̅̅ ≅ 𝐵𝐶̅̅̅̅ -------- Use parallelogram property 1 </P>
+        <p> y + 3 = 2y – 7
+          y – 2y + 3 – 3 = 2y -2y – 7 – 3
+          -y = -10
+          y = 10 </p>
+
+        <p>C. How long is ≅ 𝐴𝐷̅̅̅̅?
+          Solution: 𝐴𝐷̅̅̅̅ = (y + 3)cm
+          𝐴𝐷̅̅̅̅ = (10 + 3)cm
+          𝐴𝐷̅̅̅̅ = 13cm </p>
+
+        <h3>Module 3: Proving Theorems on the Different Kinds of Parallelogram.</h3>
+        <h3>RECTANGLE</h3>
+        <h4>Theorem</h4>
+        <p>A parallelogram is a rectangle if and only if its diagonals are congruent</p>
+        <img src="https://i.postimg.cc/wMDgYTpP/9.png">
+        <table>
+          <thead>
+            <tr>
+              <th>STATEMENT</th>
+              <th>REASONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. ABCD is a rectangle</td>
+              <td> Given</td>
+            </tr>
+            <tr>
+              <td>2. AD = BC</td>
+              <td>Property of a rectangle</td>
+            </tr>
+            <tr>
+              <td>AB = AB</td>
+              <td>Reflexive Property</td>
+            </tr>
+            <tr>
+              <td>4. 4. DAB and CBA are right angles</td>
+              <td>Definition of a rectangle</td>
+            </tr>
+            <tr>
+              <td>5. DAB = CBA</td>
+              <td>All right angles are congruent</td>
+            </tr>
+            <tr>
+              <td>6. Triangle DAB = CBA</td>
+              <td>SAS Postulate</td>
+            </tr>
+            <tr>
+              <td>AC = BD</td>
+              <td>CPCTC</td>
+            </tr>
+        </table>
+
+        <p> Now that we have verified that the diagonals of a rectangle are congruent, let us try to apply this theorem.</P\p>
+        <p>Example: The rectangular gate has diagonal braces. </p>
+        <img src="https://i.postimg.cc/Gt12mPY3/10.png">
+        <p>Given |GI|=47 in and |HJ|=3x+2 in. Find the value of x and |HJ|</p>
+
+        <p>Solution: Since diagonals of a rectangle congruent, the |HJ|=|GI|. Thus, |HJ|=47.
+          Solving for x:</p>
+        <p>3x = 47 – 2
+          3x = 45
+          x = 15</p>
+        <h3>Module 4: Proving Theorems On the Different Kinds of Parallelogram</H3>
+        <h3>RHOMBUS</h3>
+        <p>Theorem</p>
+        <img src="https://i.postimg.cc/W1Hp9wx0/11.png">
+        <p> The diagonals of a rhombus are perpendicular to each other.</p>
+        <p>Given:
+          Rhombus WISE with diagonals WS and EI</p>
+        <p>Prove:
+          WS is perpendicular to EI</p>
+        <img src="https://i.postimg.cc/NfFWNvtP/12.png">
+        <p>Theorem</p>
+        <p>The diagonals of a rhombus bisect its opposite angles.</p>-+
+        <p>Given: Rhombus MORE with diagonal EO</p>
+        <p>Prove: angles 1 = 4, angles 3 = 2</p>
+        <table>
+          <thead>
+            <tr>
+              <th>STATEMENT</th>
+              <th>REASONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MORE is a rhombus with diagonal EO</td>
+              <td> Given</td>
+            </tr>
+            <tr>
+              <td>MO = RE = ME = RO</td>
+              <td>All sides of a rhombus are congruent
+                Definition of a rhombus
+              </td>
+            </tr>
+            <tr>
+              <td>Angles M = R</td>
+              <td>Opposite angles of parallelogram are congruenty</td>
+            </tr>
+            <tr>
+              <td>Triangles MEO = ROE</td>
+              <td>SAS Postulate</td>
+            </tr>
+            <tr>
+              <td>Angles 1 = 2 and Angles 3 = 4</td>
+              <td>CPCTC</td>
+            </tr>
+            <tr>
+              <td>Triangles MEO = ROE are isosceles triangles </td>
+              <td>Definition of isosceles triangle</td>
+            </tr>
+            <tr>
+              <td>Angles 1 = 3 and Angles 2 = 4</td>
+              <td>Base angles of isosceles triangle are congruent</td>
+            </tr>
+            <tr>
+              <td>Angles 1 = 4 and Angles 3 = 2</td>
+              <td>Transitive property</td>
+            </tr>
+        </table>
+        <h3>Module 5: Proving Theorems On the Different Kinds of Parallelogram (Rectangle, Rhombus, Square).</h3>
+        <h4>SQUARE</h4>
+        <p>In a square, if it is folded through a diagonal, two ≅ isosceles right triangles are formed.
+        <p>
+          <img src='https://i.postimg.cc/J4wB4Mh9/13.png'>
+        <p>Given: ABCD is a square </p>
+        <p>Prove: ΔADC ≅ ΔCBA, and
+          ΔADC and ΔCBA are isosceles right triangles.</p>
+        <img src="https://i.postimg.cc/fWYRCXwr/14.png">
+
+        <h3>Module 6: Trapezoids and Kite.</h3>
+        <h3> Trapezoid</h3>
+        <p>Trapezoid is a quadrilateral with exactly one pair of parallel sides. </p>
+        <p>The parallel sides are called bases. </p>
+        <p>The non-parallel sides are called legs. </p>
+        <img src="https://i.postimg.cc/xdmwQvFr/15.png">
+        <p>The base angles of a trapezoid are consecutive angles whose common side is a base of the trapezoid. </p>
+        <p>Trapezoids have two pairs of base angles.</p>
+        <img src="img/16.png">
+          <p>The median of a trapezoid is a segment joining the midpoints of the legs of the trapezoid.</p>
+          <p>It is parallel to the bases and the length of which is equal to half the sum of the lengths of the bases.</p>
+
+          <h4>Theorem </h4>
+          <p>The median of a trapezoid is parallel to the bases and the length of which is equal to half the sum of the lengths of the bases. </p>
+          <p>In trapezoid ABCD, 𝑀𝑁 ̅̅̅̅̅̅ is the median. </p>
+          <p>Length of the median = ½
+            (length of the upper base + length of the lower base) </p>
+          <img src="https://i.postimg.cc/dV6ByLk7/17.png">
+          <p>Given: Trapezoid ABCD </p>
+          <p>Median 𝑀𝑁 </p>
+          <p>Prove: 𝑀𝑁̅ || 𝐴𝐵 ; 𝑀𝑁̅ || 𝐶𝐷 , and
+            |𝑀𝑁|=|𝐷𝐶|+|𝐴𝐵| 2</p>
+
+          <p>PROOF: </p>
+          <p><img src="https://i.postimg.cc/kGVJx6g7/18.png"></p>
+          <img src="https://i.postimg.cc/7h7gKLBy/19.png">
+          <p>An isosceles trapezoid is a trapezoid whose nonparallel sides are congruent. </p>
+
+          <p>If the legs of a trapezoid are congruent, then the trapezoid is an isosceles trapezoid.</p>
+          <img src="https://i.postimg.cc/0QCvDGvg/20.png">
+          <table>
+            <tr>
+              <td>PROPERTY</td>
+              <td>ILLUSTRATION/EXAMPLE</td>
+            </tr>
+            <tr>
+              <td>The bases are parallel</td>
+              <td>SE//KO</td>
+            </tr>
+            <tr>
+              <td>The legs are congruent</td>
+              <td>SK = EO</td>
+            </tr>
+          </table>
+
+          <h4>Theorem</h4>
+
+          <p> If a trapezoid is isosceles, then each pair of base angles are congruent.</p>
+          <p><img src="https://i.postimg.cc/ydRPbnd5/21.png"></p>
+          <p><img src="https://i.postimg.cc/MK677zyg/22.png"></p>
+
+          <h4>Theorem</h4>
+          <p>If a quadrilateral is an isosceles trapezoid, then the diagonals are congruent.</p>
+
+          <p>Given: Isosceles Trapezoid ABCD</p>
+          <p>Prove: 𝐴𝐶̅̅̅̅≅𝐵𝐷</p>
+          <p><img src="https://i.postimg.cc/pTvhPBC3/23.png"></p>
+          <img src="https://i.postimg.cc/Zqd7GJsV/24.png">
+          <table>
+            <tr>
+              <td>PROPERTY</td>
+              <td>ILUSSTRATION/EXAMPLES</td>
+            </tr>
+            <tr>
+              <td>The opposite angles of an isosceles trapezoid are supplementary</td>
+              <td>∠A and ∠C are supplementary,
+                and ∠D and ∠B are supplementary.
+              </td>
+            </tr>
+            <tr>
+              <td>Any lower base angle of an isosceles trapezoid is supplementary to any upper base angle.</td>
+              <td>m∠A + m∠B = 180⁰
+                m∠D + m∠C = 180⁰
+                m∠A + m∠C = 180⁰
+                m∠D + m∠B = 180⁰
+              </td>
+            </tr>
+          </table>
+          <h3>KITE</h3>
+          <p>A kite is a quadrilateral with two distinct pairs of consecutive sides that are congruent.</p>
+          <p>In contrast to parallelograms where opposite sides are congruent, in a kite the congruent sides are consecutive.</p>
+          <img src="https://i.postimg.cc/MZP4NZWJ/25.png">
+          <h4>Theorem</h4>
+          <p>If a quadrilateral is a kite, then the diagonals are perpendicular.</p>
+
+          <p>Given: Kite ABCD </p>
+          <p>Prove: 𝐵𝐷 ⊥ 𝐴𝐶</p>
+          <img src="https://i.postimg.cc/RVjMrLMm/26.png">
+          <p>PROOF:</p>
+          <p><img src="https://i.postimg.cc/QN7DQWQn/27.png"></p>
+          <p><img src="https://i.postimg.cc/sXpnXyWK/28.png"></p>
+          <img src="https://i.postimg.cc/zBbySX7S/29.png">
+          <table>
+            <tr>
+              <td>PROPERTY</td>
+              <td>ILLUSTRATIONS/EXMPLES</td>
+            </tr>
+            <tr>
+              <td>Diagonals of a kite are perpendicular</td>
+              <td>𝐶𝐴 ⊥ 𝐵𝐷</td>
+            </tr>
+          </table>
+          <h4>Theorem</h4>
+          <p>If a quadrilateral is a kite, then it has one pair of opposite congruent angles.</p>
+          <img src="https://i.postimg.cc/cHwsLKTj/30.png">
+          <p>Given: Kite ABCD </p>
+          <p>Prove: ∠A ≅ ∠C</p>
+
+          <P>PROOF:</p>
+          <img src="https://i.postimg.cc/PJggChrq/31.png">
+
+          <table>
+            <tr>
+              <td>PROPERTIES</td>
+              <td>ILLUSTRATIONS/EXAMPLES</td>
+            </tr>
+            <tr>
+              <td>Kite has exactly one pair of opposite congruent angles</td>
+              <td>∠BCD ≅ ∠BAD </td>
+            </tr>
+          </table>
+          <h4>Theorem</h4>
+          <p>If a quadrilateral is a kite, it has one diagonal that bisects the other diagonal.
+          <p>
+
+          <p>Given: Kite ABCD </p>
+          <p>Prove: Diagonal 𝐵𝐷̅̅̅̅ bisects diagonal 𝐴𝐶̅̅̅̅. </p>
+          <img src="https://i.postimg.cc/QCQ2KwBk/32.png">
+          <table>
+            <tr>
+              <td>PROPERTY</td>
+              <td>ILLUSTRATIONS/EXAMPLES</td>
+            </tr>
+            <tr>
+              <td>Kite has only one diagonal that bisects the other diagonal</td>
+              <td>Diagonal 𝐾𝑇̅̅̅̅ bisects diagonal 𝐼𝐸 ̅̅̅̅.
+                𝑇ℎ𝑖𝑠 𝑚𝑒𝑎𝑛𝑠 𝐸𝑂 ̅̅̅̅̅≅ 𝐼𝑂̅̅̅.</td>
+            </tr>
+            <tr>
+              <td>Kite has a diagonal that bisects each of the noncongruent angles</td>
+              <td>Diagonal 𝐾𝑇̅̅̅̅ bisects ∠EKI and ∠ETI. This means ∠KTI ≅ ∠KTE and ∠IKT ≅ ∠EKT </td>
+            </tr>
+          </table>
+          <h3>Module 7: Problems Involving Parallelograms, Trapezoids and Kites.</h3>
+          <h3>PARALLELOGRAM</h3>
+          <img src="https://i.postimg.cc/J7T6PjJ5/33.png">
+          <p>Given the parallelogram with indicated measures of its sides, solve for the values of x and y. Also, solve for the perimeter. </p>
+
+          <p>Solution:</p>
+          <p>Since the opposite sides of a parallelogram are congruent, then </p>
+          <p>6x – 1 = 5x + 1</p>
+          <p>Therefore, x = 2 </p>
+          <p>7y + 1 = 10y – 8</p>
+          <p> -3y = -9</p>
+          <p>Therefore, y = 3</p>
+          <p>Perimeter = sum of the measures of all sides.</p>
+          <p>Substitute x and y by their respective values in the expressions representing the lengths of the sides.</p>
+          <p>6x – 1 = 6(2) -1 = 12 – 1 = 11</p>
+          <p>7y + 1 = 7(3) +1 = 21 + 1 = 22</p>
+          <p>5x + 1 = 5(2) +1 = 10 + 1 = 11</p>
+          <p>10y – 8 = 10(3) -8 = 20 – 8 = 22</p>
+          <p>Thus, 11 + 11 + 22 + 22 = 66 units</p>
+
+          <h3>TRAPEZOID</h3>
+          <img src="https://i.postimg.cc/sx1twmgb/34.png">
+          <p>Given PQRS is a trapezoid at the right with PS = QR. If |PR| = 3x – 14cm and
+            |SQ| = 4x – 22cm, find the length of the diagonals.</p>
+
+          <p>Solution: </p>
+          <img src="https://i.postimg.cc/GmRyD527/35.png">
+          <p>If the given PQRS is an isosceles trapezoid, then the diagonals are congruent.</p>
+          <p>PR = SQ then |PR| = |SQ|</p>
+          <p> 3x – 14 = 4x – 22</p>
+          <p> 3x – 4x = -22 – 14</p>
+          <p> -x = -8
+          <p>
+          <p>x = 8</p>
+          <p>Substitute x by its value in both equations:</p>
+
+          <h3>KITE</h3>
+          <img src="https://i.postimg.cc/pTbdDFX9/last.png">
+        </div>
+
+            </p>
+          <br><br><br>
+        </div>
+
+        `;
+        parallelLes.addEventListener("click", () => {
+            parallelogramlesson.innerHTML = getparallelLes;
+        });
+
+        const similarLes= document.getElementById("similarLes");
+        const similarLesCont = document.querySelector(".main");
+        const similarlesson = `
+        
+        <h2>SIMILARITIES</h2>
+  </div>
+  <div class="detailPanel" id="detailPanel2">
+    <h2>MODULE 11 (Condition for Proving Triangles Similar)</h2>
+
+    <h3>Two triangles are similar if and only if their corresponding</h3>
+    <h3>angles are congruent and their corresponding sides are proportional.</h3>
+
+    <h4>Angle-Angle (AA) </h4>
+    <p>similarity postulate- if two angles of one triangle </p>
+    <p>are congruent to two angles of another triangle, then the triangles are similar.</p>
+    <p>Condition: ∠L ≅ ∠𝐷, ∠V ≅ ∠𝐸, ∠O ≅ ∠𝐸 Conclusion: ∆LVO~∆DEF</p>
+    <table>
+      <tr>
+        <td>Statements</td>
+        <td>Reasons</td>
+      </tr>
+      <tr>
+        <td>1. ∠L ≅ ∠𝐷
+          ∠V ≅ ∠𝐸
+        </td>
+        <td> GIVEN</td>
+      </tr>
+      <tr>
+        <td>2. 𝑚∠L = m∠D 
+    𝑚∠V = m∠F</td>
+        <td>Definition of congruent angles</td>
+      </tr>
+      <tr>
+        <td>3. 𝑚∠L + 𝑚∠V = m∠𝐷 + 𝑚∠E</td>
+        <td>APE</td>
+      </tr>
+      <tr>
+        <td>4. 𝑚∠L + 𝑚∠V + 𝑚∠O = 180 degrees
+    m∠𝐷 + 𝑚∠E + 𝑚∠F = 180 degrees</td>
+        <td>In any triangle, the sum of the measures of its angle is 180 degrees .</td>
+      </tr>
+      <tr>
+        <td>5. 𝑚∠L + 𝑚∠V + 𝑚∠O = m∠𝐷 + 𝑚∠E + 𝑚∠F</td>
+        <td>Transitive property</td>
+      </tr>
+      <tr>
+        <td>6. 𝑚∠O = 𝑚∠F</td>
+        <td>Subtraction Property of equality</td>
+      </tr>
+      <tr>
+        <td>7. ∠O ≅ ∠F</td>
+        <td> Definition of congruent angles</td>
+      </tr>
+      <tr>
+        <td>8. ∆LVO~∆DEF</td>
+        <td>AAA Similarity Postulate</td>
+      </tr>
+      
+    </table>
+    <p>Example: Determine if the two triangles are similar.</p>
+    <p> Since m∠M = m∠Q = 100 and m∠O = m∠R = 20 ,</p>
+    <p> ∠𝑀 ≅ ∠𝑄 and ∠𝑂 ≅ ∠𝑅.</p>
+    <p>By the AA Similarity Postulate, ∆MNO ~ ∆QPR. </p>
+    <p> SAS Similarity Theorem- states that if two sides of one triangle are</p><p> proportional to two sides of another triangle, </p><p>and the included angle between these sides is congruent, then the triangles are similar.</p>
+    <p>Given: LM/TU = LN/TV , ∠L ≅ ∠T Prove: ∆LMN~∆TUV</p>
+    <h4>SSS Similarity Theorem</h4> <p>- if the three sides of one triangle are proportional to the</p><p> three sides of another triangle, then the triangles are similar.</p>
+
+    <h4>Example 1: Which of the following triangles are similar?</h4>
+
+<h4>Solutions: </h4>
+<p>Compare the sides of three triangles by checking if the sides are in proportion.<p>
+    <table>
+      <tr>
+        <td>∆AMP and ∆UTV</td>
+        <td>∆AMP and ∆XWY</td>
+        <td>∆UTV 𝐚𝐧𝐝 ∆XWY</td>
+      </tr>
+      <tr>
+        <td><p>AM/UT = MP/TV = AP/UV</p>
+          <p> 6/4 ≠ 4/3 ≠ 2/2</p>
+          <p>ce the lengths of the sides are not proportional,</P><p> ∆𝐴𝐵𝐶 and ∆𝑅𝑆𝑇 are not similar.</p>
+</td>
+    <td><p> AM/XW = MP/WY = AP/XY </p>
+      <p> 6/3 = 4/2 = 2/1 </p>
+
+
+
+Because the lengths of the sides are proportional, ∆AMP and ∆XWY are similar or ∆AMP ~ ∆XWY by SSS Similarity theorem.
+</td>
+    <td>   <p>UT/XW = TV/WY = UV/XY
+      4/3 = 3/2 = 2/1 </p>
+      <p>Since the lengths of the sides are not proportional,</p><p> ∆AMP and ∆UTV are not similar
+    </p>
+</td>
+      </tr>
+    </table>
+<h2>MODULE 12 ( Right Triangle Similarity Theorems)</h2>
+
+<h4>Right triangle</h4> <p>-  is a triangle that has one angle measuring exactly 90 degrees.</p>
+<h4>Right Triangle Similarity Theorem</h4>
+<p> - states that if an altitude is drawn from the vertex</p><p> of the right angle to the hypotenuse of a right triangle, </p> <p>all triangles formed are similar to each other.</p>
+<p>-  It also follows that these similar triangles have proportional </p><p>corresponding sides whose lengths can be found by solving</p><p> for the geometric means of the said sides.</p>
+
+<p>Given is a right triangle Δ𝐴𝐵𝐶 with ∠𝐵𝐴𝐶 as its right angle,</p><p> and hypotenuse 𝐵𝐶̅. 𝐴𝐷̅ is the altitude to the hypotenuse of Δ𝐴𝐵𝐶,</p> <p> the following statements are true:</p>
+<p>ΔROS ∼ ΔERS ∼ ΔEOR</p>
+<p>|AE|/|OE| = |SE|/|RS|</p>
+<p>|RO|/|OE| = |OS|/|RO|</p>
+<p>|RS|/|SE| = |OS|/|RS|</p>
+
+<h2>MODULE 13 (Proving Conditions for Special Right Triangles)</h2>
+
+<p>A 30-60-90 triangle is characterized by one 90-degree angle, </p><p>one 30-degree angle, and one 60-degree angle.</p> <p> To prove the unique side length ratios of this triangle,</p><p> let us consider an arbitrary 30-60-90 triangle with</p><p> sides denoted as a, b, and c (hypotenuse).</p>
+<p>To start with, lets’ try to prove the 30°-60°-90° right triangle theorem.</p>
+<p>In the 30°-60°-90° triangle, </p><p>the length of the hypotenuse is twice the length of the shorter leg. </p><p>The length of the longer leg is √3 times the length of the shorter leg. </p>
+<p>length of the hypotenuse = 2(length of the shorter leg)</p>
+<p>length of the 𝑙𝑜𝑛𝑔𝑒𝑟 𝑙𝑒𝑔 = √3 (length of the 𝑠ℎ𝑜𝑟𝑡𝑒𝑟 𝑙𝑒𝑔)</p>
+
+<p>Proof:</p>
+<p> For 30° − 60° − 90°, ∆ABC in equilateral ∆ACD ,</p>
+<p>AD  is the perpendicular bisector of AC.</p>
+<p>Thus, |BD| = ½ |BC| = ½ |BA|, or |BA| = 2|BC| = 2s.</p>
+<p>|BC|^2 + |AD|^2 =|BA|^2	Use Pythagorean Theorem</p>
+<p>s^2 + |AD|^2 = (2s)^2	Express |AB| in terms of s, thus |AB|= 2s</p>
+<p>|AD|^2 = 4s^2 – s^2	Subtract s2 from each side</p>
+<p>|AD|^2 = 3s^2		Simplify</p>
+<p>|YW| = s√3			Find the square root of each side</p>
+
+<h2>MODULE 14 (Applying Triangle Similarity Theorems)</h2>
+
+<p>Triangle similarity theorems are based on the concept that if two triangles have equal corresponding angles, </p><p>then their sides are proportional.
+The following are illustrations of the similarity theorems that we have discussed in the previous modules.</P><p> We can use these theorems to show similarity between triangles.</p>
+
+<h3>AA Similarity Corollary</h3>
+     <p> States that if two angles of one triangle are congruent to two angles of another triangle,</p><p> then the triangles are similar.</p>
+
+<h3>SSS Similarity Theorem</h3>
+<p> If the lengths of the corresponding sides of two triangles are proportional,</p><p> then the triangles are similar.</p>
+
+<h3>SAS Similarity Theorem</h3>
+    <p>  States that if two sides of one triangle are proportional to two sides of another triangle, </p><p>and the included angles are congruent, then the triangles are similar.</p>
+
+<h3>Triangle Proportionality Theorem</h3>
+     <p> fundamental in the field of mathematics because they allow us to solve a wide range of geometric problems.</p>
+
+<h2>MODULE 15 (The Pythagorean Theorem)</H2>
+
+<P>The Pythagorean Theorem is named after the Greek mathematician Pythagoras,</P><P> who is widely regarded as one of the most influential figures in the history of mathematics.</P><P> It states that in a right-angled triangle, the square of the length of the hypotenuse is</p><p> equal to the sum of the squares of the lengths of the other two sides.</p> 
+<p>It can be expressed as a^2 + b^2 = c^2, where c represents the length of the hypotenuse,</p><p> and a and b represent the lengths of the two other sides.</p>
+
+<h3>EXAMPLES OF THE PYTHAGOREAN THEOREM</h3>
+<p>Use the Pythagorean Theorem to determine the value of 𝑥 </p><p>in the figure at the right.</p>
+
+<h3>Step 1<h3><p> Identify the legs and the hypotenuse of the right triangle.</p> The legs have lengths 8 cm and 10 cm and 𝑥 is the length of the hypotenuse,</p><p> the side opposite the right angle. </P>
+<h3>Step 2</h3> <p>Substitute the variables by the given values into the formula</p><p> (remember ‘c’ is the length of the hypotenuse). </p>
+<p>𝒂^𝟐 + 𝒃^𝟐 = 𝒄^𝟐</p>		
+<p>3^𝟐 + 4^𝟐 = 𝒙^2</p>
+<h3>Step 3</h3><p> Solve for the unknown.</p>
+	<p>3^𝟐 + 4^𝟐 = 𝒙^𝟐 </p>
+<p>9 + 16 = 𝒙^𝟐 </p>
+<p>25 = 𝒙^𝟐 </p>
+<p>√25 = 𝒙 </p>
+<p>5 cm = x</p>
+<p>Therefore, the length of the hypotenuse of the right triangle is 5 cm.</p>
+
+<h3>Use the Pythagorean Theorem to determine the value of x</h3> 
+
+<h3>Step 1</h3> <p>Identify the legs and the hypotenuse of the right triangle.</p><p> The legs have lengths 3 and x. </p><p>The length of the hypotenuse is 5.</p>
+<h3>Step 2</h3><p> Substitute the variables by the given values into the formula</p><p> (remember ‘c’ is the length of the hypotenuse)</p>
+<p>𝒂^𝟐 + 𝒃^𝟐 = 𝒄^𝟐 </p>
+<p>𝒙^𝟐 + 3^𝟐 = 5^2</p>
+<h3>Step 3</h3> <p>Solve for the unknown.</p>
+<p>	𝒙^𝟐 + 3^𝟐 = 5^𝟐 </p>
+<p>𝒙^𝟐 + 9 = 25</p>
+<p>𝒙^𝟐 = 25 − 9 </p>
+<p>𝒙^𝟐 = 16</p>
+<p>𝒙 = √16 </p>
+<p>x = 4 </p>
+<p>Therefore, the length of the other leg of the right triangle is 4 cm.</p>
+
+
+
+
+<h3>Example: </h3>
+<p>Give the theorem that supports the similarity of the given pairs of triangles.</p><p> Then, find the length of the indicated side.</p>
+
+<p>We can say that ΔEBA ∼ ΔECD by SAS.</p>
+<p>|ED|/|EC| = |EA|/|EB|	Write the observable proportion and solve for the 
+      unknown</p>
+<p>|EA|/4 = 5/10		Use the known values</p>
+<p>|EA| = 8 ∙ 3/12 		Solve for |EA| and simplify</p>
+<p>|EA| = 2 </p>
+
+<h2>MODULE 16 (Solving Problems in Triangle Similarity and Right Triangles)</h2>
+
+<h3>Triangle similarity</h3> <p>refers to the concept that two triangles are considered similar </p><p>if their corresponding angles are congruent and their corresponding sides are proportional. </p>
+<p>The concept of triangle similarity is crucial in various real-world applications.</p><p> For example, in architecture and construction,</p><p> it is used to determine the height of a tall building or the length of a</p><p> bridge by using similar triangles in conjunction with basic measurements and angles.</p><p> Another application is in map scaling, </p><p>where we can use similar triangles to calculate the actual distance between any two points on a map.</p>
+<p>In triangle ABC</p> <p>𝐴′𝐶′ is parallel to 𝐴𝐶.</p><p> Find the value of y or |BC’| and the value of x or |A’A|.</p>
+<h3>Notice:</h3> <p> that the given problem involves similar triangles. </p><p>We can apply the concepts that you’ve learned about the theorems</p><p> and postulates in similar triangles.</p>
+<h3>Solution:</h3>
+<p>𝐵𝐴̅ is a transversal that intersects the two parallel lines 𝐴’𝐶’ and 𝐴𝐶̅,</p><p> hence the corresponding ∠BA’C’ and ∠BAC are congruent.</p><p> ̅𝐵𝐶̅ is also a transversal to the two parallel lines A’C’, </p><p>and 𝐴𝐶⃡ and therefore ∠BC’A’ and ∠BCA are congruent.</p>
+<p>These two triangles have two congruent angles and are therefore similar</p><p> and the lengths of their sides are proportional.</p><p> Let us separate the two triangles as shown below. </p>
+
+<p>We now use the proportionality of the lengths of the sides</p><p> to write equations to solve for the values of x and y.</p>
+<p>An equation for x may be written as follows.</p>
+ <p>	(20 + 𝑥)/20 = 12/6 </p>
+<p>Solve the equation for x.</p>
+ <p>120 + 6x = 240</p>
+<p>x=20</p>
+<p>An equation for y may be written as follows.</p>
+<p>12/6 = (𝑦 + 5)/y</p>
+<p>Solve the equation for y.</p>
+<p> 12𝑦 = 6𝑦 + 30</p>
+<p>   6𝑦 = 30</p>
+<p>     y = 5</p>
+<br><br><br>
+
+
+  </div>
+
+
+        `;
+        similarLes.addEventListener("click", () => {
+            similarLesCont.innerHTML = similarlesson;
+        });
+
+        const proporLes = document.getElementById("proporLes");
+        const proportionCont = document.querySelector(".main");
+        const proportionLesson = `
+   
+    <h2>PROPORTION</h2>
+    <h3> Module 9 ( Describe a Proportion)</h3>
+    <p>
+    <h4>Ratio</h4> - <p>is a comparison of two or more quantities, and it is often represented in the form of a fraction.</P>
+    <p>For ex. </p>
+    <p>Suppose we have a class consisting of 20 boys and 30 girls.</p>
+    <p>20 : 30 or 20/30 - we can be simplified to ⅔ </p>
+    <p>Find the ratio of a to b, where a=2 and b=6</p>
+    <p>2 : 6 or 2/6 - we can be simplified to ⅓ </p>
+
+    <p>
+    <h4>Proportion</h4> - <P> is a relationship between two or more quantities that are equivalent.</p>
+    <p> It is a fundamental concept that plays a significant role in various mathematical operations and real-life applications.</p>
+    <p>a:b = c:d or a/b = c/d</p>
+    <p>where b is not equal to 0, d is not equal to zero
+      Each quantity in a proportion is called term of the proportion.</p>
+    <p> Thus, in the
+      proportion 𝑎: 𝑏 = 𝑐: 𝑑, a, b, c, and d are the terms. b and c are called means while
+      a and d are called extremes.</P>
+    <p>4 : 3 = 9 : 12</p>
+    <p>3 and 9 are means </p>
+    <p>4 and 12 are extremes</p>
+    <p>Examples:</p>
+    <p>Is 8:100=4:50 a proportion?</p>
+    <p>Method 1: By simplifying the ratios</p>
+    <p>8/100 = 4/50 — 2/25 = 2/25</p>
+    <p>Each of these ratios (fractions) in simplest form is 2/25 which indicates that the two ratios form a proportion. </p>
+    <p>Method 2 : By multiplying the means and multiplying the extremes</p>
+    <p> 8:100=4:50 8(50) = 100(4)</p>
+    <p> 400=400 (TRUE)</p>
+
+    <p>Determine if 5/300 = 1/60</p>
+    <p>Method 1 : By simplifying the ratios</p>
+    <p> 5/300 = 1/60 — 1/60 = 1/60</p>
+    <p>Each of the ratios in simplest form is 1/60. Therefore, the given is a proportion.</p>
+    <p>Method 2 : By multiplying the means and multiplying the extremes</p>
+    <p>5/300 = 1/60 5(60) = 300(1)</p>
+    <p> 300=300 (TRUE)</p>
+
+    <p>
+    <h4>Properties of Proportion</h4>
+    </p>
+    <p>The following properties show different ways of rewriting proportions that do not alter the meaning of their values.</p>
+    <table>
+      <tr>
+        <td>Cross Multiplication Property / MeansExtremes Property</td>
+        <td>If 𝑎/𝑏 = 𝑐/𝑑 then 𝑎𝑑 = 𝑐𝑏; 𝑏 ≠ 0; 𝑑 ≠ 0</td>
+      </tr>
+      <tr>
+        <td>Alternation Property</td>
+        <td>If 𝑎/𝑏 = 𝑐/𝑑 then 𝑎/𝑐 = 𝑏/𝑑 ; 𝑏 ≠ 0; 𝑐 ≠ 0; 𝑑 ≠ 0</td>
+      </tr>
+      <tr>
+        <td>Inverse Property / Reciprocal Property</td>
+        <td>If 𝑎/𝑏 = 𝑐/𝑑 then 𝑏/𝑎 = 𝑑/𝑐 ; 𝑎 ≠ 0; 𝑏 ≠ 0; 𝑐 ≠ 0; 𝑑 ≠ 0</td>
+      </tr>
+      <tr>
+        <td>Addition Property</td>
+        <td>If 𝑎/𝑏 = 𝑐/𝑑 then 𝑎+𝑏/𝑏 = 𝑐+𝑑/𝑑 ; b≠ 0; 𝑑 ≠ 0</td>
+      </tr>
+      <tr>
+        <td>Subtraction Property</td>
+        <td>If 𝑎/𝑏 = 𝑐/𝑑 then𝑎−𝑏/𝑏 = 𝑐−𝑑/𝑑 ; 𝑏 ≠ 0; 𝑑 ≠ 0</td>
+      </tr>
+      <tr>
+        <td>Sum Property of the Original Proportion</td>
+        <td>If 𝑎/𝑏 = 𝑐/𝑑 , then 𝑎/𝑏 = 𝑐/𝑑 = 𝑎+𝑐/𝑏+𝑑 ; 𝑏 ≠ 0; 𝑑 ≠ 0</td>
+      </tr>
+    </table>
+
+    <h3>MODULE 10 ( Applying the Fundamental Theorems of Proportionality to Solve Problems Involving Proportion )</h3>
+
+    <h4>Proportionality</h4>
+    <p>- refers to the concept of comparing different quantities and their relationships.</p>
+
+    <h4>Lesson 1: Basic Proportionality Theorem </h4>
+    <p>Basic Proportionality Theorem - was introduced by a famous Greek
+      Mathematician, Thales,</p>
+    <p> hence it is also called Thales Theorem. According to him,
+      for any two equiangular triangles,</p>
+    <p> the ratio of any two corresponding sides is
+      always the same.</p>
+
+    <h3>APPLICATION OF FUNDAMENTAL THEOREMS OF PROPORTIONALITY</h3>
+    <p>In geometry, we used proportion to compare lengths of segments.</p>
+    <p> To solve for unknown length, we often used the properties of proportion.</p>
+
+    <p>Here are some examples on how to apply the fundamental theorems of </p>
+    <p>proportionality to solve problems involving proportions.</p>
+    <p> 1: Use the proportion 𝑚/𝑛 = 4/7 to complete each proportion.</p>
+    <p>a. 𝑛/7 = ___ b. 4/𝑚 = ___ c. 𝑛/𝑚 = ___ d. 𝑛+𝑚/𝑚 = ___</p>
+    <p>Solution</p>
+    <p>a. 𝑛/7 = 𝑚/4 b. 4/𝑚 = 7/𝑛 c. 𝑛/𝑚 = 7/4 d. 𝑛+𝑚/𝑚 = 11/4
+    <p>
+
+      <h4< /h4.>Example 2
+        <p> Find the value of x in the following proportions.
+        <p>
+        <p>a. 9/𝑥 = 15/20 b. x :6 = 15 : 18 </p>
+        <p> c. 𝑥+3/4 = 9/2 d. 𝑥+2/3 = 4𝑥/6
+        <p>
+        <h4>Solution</h4>
+        <p>a. 9/𝑥 = 15/20 → 15 ∙ x = 9 ∙ 20 → 15x = 180 → ( 1/15)15x = ( 1/15)180 → x = 12</p>
+        <p>b. x :6 = 15 : 18 → 6 ∙ 15 = 18 ∙ x → 90 = 18x → ( 1/18)90 = ( 1/18)18x → 5 = x or x = 5</p>
+        <p>c. 𝑥+3/4 = 9/2 → 4 ∙ 9 = 2 (x + 3) → 36 = 2x + 6 → 36 – (6) = 2x + 6 – (6) → 30 = 2x → ( 1/2 ) 30 = ( 1/2 )(2x) → 15 = x or x = 15</p>
+        <p>d. 𝑥+2/3 = 4𝑥/6 → 3 ∙ 4x = 6(x + 2) →12x = 6x + 12 → 12x – 6x = 6x - 6x + 12 → 6x = 12 → ( 1/6 )6x = ( 1/6 )12 → x = 2 </p>
+        <br><br><br>
+  </div>
+  
+        `;
+        proporLes.addEventListener("click", () => {
+            proportionCont.innerHTML = proportionLesson;
+        });
+
+    </script>
+
+<script>
+  // Create an audio element
+  var audio = new Audio('bgmusic.mp3'); 
+
+  // Function to play music
+  function playMusic() {
+    // Check if audio is paused or not
+    if (audio.paused) {
+      // Play the audio
+      audio.loop = true; // Set audio to loop
+      audio.play();
+      // Disable the play button while audio is playing
+      document.getElementById('play-music-button').disabled = true;
+    } else {
+      // Pause the audio
+      audio.pause();
+      // Enable the play button after pausing audio
+      document.getElementById('play-music-button').disabled = false;
+    }
+  }
+
+  // Attach click event listener to the play music button
+  document.getElementById('play-music-button').addEventListener('click', function() {
+    playMusic();
+  });
+
+  // Event listener to re-enable the play button when audio has finished playing
+  audio.addEventListener('ended', function() {
+    document.getElementById('play-music-button').disabled = false;
+  });
+</script>
+    
+</body>
+<p>
+   
+</p>
+<script>
+  
+</script>
+
+</html>

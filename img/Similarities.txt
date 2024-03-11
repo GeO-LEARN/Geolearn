@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add your custom styles for the audio player */
+    #background-music {
+      display: none; /* Hide the default audio controls */
+    }
+
+    .category-container {
+      text-align: center;
+    }
+
+    .category-button {
+      display: none;
+      margin-bottom: 10px;
+      cursor: pointer;
+      margin: 0 auto; /* Center the buttons */
+      display: block;
+    }
+
+    .category-content {
+      display: none;
+      text-align: left;
+      padding: 10px;
+    }
+  </style>
+  <title>GEO-LEARN</title>
+</head>
+<body>
+  <header>
+    <h1><a href="#" id="play-music-link">GEO-LEARN</a></h1>
+  </header>
+
+  <main>
+    <audio id="background-music" autoplay loop>
+      <source src="Electric_Love_Background_Music.mp3file:///C:/Users/James%20Berlon/Pictures/New%20folder/Electric%20Love%20-%20Background%20Music%20(BGM)%20-%20Start%20Up%20Kdrama.mp3" type="audio/mp3">
+    </audio>
+
+    <div id="category1" class="category-container">
+      <button class="category-button" onclick="handleCategoryClick('Category 1 Button Clicked!')">Category 1</button>
+      <div id="category1-content" class="category-content">
+        <h2>Category 1</h2>
+        <p>This is the content for Category 1.</p>
+        <!-- Add your input fields or other content here -->
+      </div>
+    </div>
+
+    <div id="category2" class="category-container">
+      <button class="category-button" onclick="handleCategoryClick('Category 2 Button Clicked!')">Category 2</button>
+      <div id="category2-content" class="category-content">
+        <h2>Category 2</h2>
+        <p>This is the content for Category 2.</p>
+        <!-- Add your input fields or other content here -->
+      </div>
+    </div>
+
+    <div id="category3" class="category-container">
+      <button class="category-button" onclick="handleCategoryClick('Category 3 Button Clicked!')">Category 3</button>
+      <div id="category3-content" class="category-content">
+        <h2>Category 3</h2>
+        <p>This is the content for Category 3.</p>
+        <!-- Add your input fields or other content here -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Add footer content if necessary -->
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const audio = document.getElementById('background-music');
+      const playMusicLink = document.getElementById('play-music-link');
+      const categoryButtons = document.querySelectorAll('.category-button');
+
+      // Clicking the title will trigger the music to play and reveal categories
+      playMusicLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        audio.play();
+        playMusicLink.style.display = 'none'; // Hide the GEO-LEARN link
+        categoryButtons.forEach(button => {
+          button.style.display = 'block';
+        });
+      });
+    });
+
+    function handleCategoryClick(message) {
+      alert(message);
+      // Add your custom logic here for each category button click
+    }
+  </script>
+</body>
+</html>

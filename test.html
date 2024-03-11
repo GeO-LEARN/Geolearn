@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <style>
+        /* Center the audio controls */
+        #bg-music {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Hide the audio controls */
+        #bg-music::-webkit-media-controls {
+            display: none !important;
+        }
+
+        /* CSS class to hide elements */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+
+    <!-- Audio element for background music -->
+    <audio id="bg-music" loop controls>
+        <source src="bgmusic.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Element to be hidden when play button is clicked -->
+    <div id="controlsToHide">
+        Audio Controls
+    </div>
+
+    <script>
+        // Check if the audio is enabled or disabled
+        var audioEnabled = localStorage.getItem('audioEnabled');
+
+        // If audio is enabled, start playing the audio
+        if (audioEnabled === 'true') {
+            var bgMusic = document.getElementById('bg-music');
+            bgMusic.play();
+        }
+
+        // Add event listener to the play button
+        document.getElementById('bg-music').addEventListener('play', function() {
+            localStorage.setItem('audioEnabled', 'true');
+
+            // Hide the controls when play button is clicked
+            var controlsToHide = document.getElementById('controlsToHide');
+            controlsToHide.classList.add('hidden');
+        });
+
+        // Add event listener to the pause button
+        document.getElementById('bg-music').addEventListener('pause', function() {
+            localStorage.setItem('audioEnabled', 'false');
+        });
+    </script>
+</body>
+</html>

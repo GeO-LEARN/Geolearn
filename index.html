@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GEO-LEARN</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div id="intro">
+    
+  </div>
+
+  
+  <div id="main">
+    <div id="center-main">
+        <button id="intro-btn"><a href="home.html">Click next to proceed on the next page.</a></button>
+        <button id="play-music-btn">Play Music</button>
+    </div>
+  </div>
+
+
+  <div id="content">
+    <div id="sidebar">
+      <h2>References</h2>
+      <ul>
+        <li id="refs"><a href="https://www.scribd.com/document/503248580/Math-9-Q3-Module-1-Quadrilaterals">Quadrilaterals Module</a></li>
+        <li id="refs"><a href="https://www.studocu.com/ph/document/mabini-national-high-school/secondary-education/math9-q3-module-3-thank-you/31011964">Secondary Education: Math Module 3</a></li>
+        <li id="refs"><a href="https://www.studocu.com/ph/document/st-vincents-college-incorporated/junior-high/math9-q3-module-4/55393857">Junior High: Math Module 4</a></li>
+        <li id="refs"><a href="https://www.scribd.com/document/569670630/Mathematics-9-Q3-Mod5-Proving-Theorems-on-the-Different-Kinds-of-Parallelogram-V3">Proving Theorems on Parallelograms</a></li>
+        <li id="refs"><a href="https://depedtambayan.net/wp-content/uploads/2022/01/MATH9-Q3-MODULE7.pdf">Mathematics 9: Module 7</a></li>
+        <li id="refs"><a href="https://www.scribd.com/document/517788006/Math9-Q3-Mod8-Problems-InvolvingParallelogramsTrapezoidsAndKites-V3">Problems Involving Parallelograms, Trapezoids, and Kites</a></li>
+      </ul>
+    </div>
+
+
+
+    <div id="main">
+      <p>UNIVERSITY OF RIZAL SYSTEM</p>
+      <!-- Add your e-learning stuffs here -->
+    </div>
+    
+  </div>
+
+  <script>
+    var audio = new Audio('bgmusic.mp3');
+    audio.loop = true;
+  
+    var isPlaying = false;
+    var button = document.getElementById('play-music-btn');
+  
+    function toggleMusic() {
+      if (!isPlaying) {
+        audio.play();
+        isPlaying = true;
+        button.textContent = 'Pause Music';
+      } else {
+        audio.pause();
+        isPlaying = false;
+        button.textContent = 'Play Music';
+      }
+    }
+  
+    button.addEventListener('click', toggleMusic);
+  </script>
+</body>
+</html>

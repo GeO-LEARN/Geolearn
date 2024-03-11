@@ -1,0 +1,115 @@
+/* Add some basic styling */
+
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #97c6f6, #003d66);
+    }
+    
+    #intro {
+    background-image: url("img/header1.png");
+    background-size: 80% 130%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    }
+        
+    #content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    #sidebar {
+      width: 25%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    /* #main {
+      width: 75%;
+      padding: 20px;
+      box-sizing: border-box;
+    } */
+
+    #main {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+    #intro-btn{
+        background-color: #003d66;
+    }
+    #intro-btn:hover{
+        background-color: #a8c9e9;
+    }
+    #intro-btn:hover a{
+        color: #003d66;
+    }
+
+    .center-main {
+        margin: 0 auto;
+      }
+
+    a {
+      color: #a8c9e9;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: none;
+
+    }   
+
+    #sidebar h2{
+        color: #97c6f6;
+        padding-left: 30px;
+        margin-bottom: 5px;
+    }
+    #refs a:hover{
+        text-decoration: underline;
+    }
+    
+    p{
+        color: #a8c9e9;
+    }
+
+button {
+    background-color: #b0d3f6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #a6f89d;
+  }
+
+  
+#play-music-btn {
+  background-color: #003d66;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#play-music-btn:hover {
+  background-color: #b0d3f6;
+}
+

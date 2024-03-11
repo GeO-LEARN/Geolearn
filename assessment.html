@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ASSESSMENT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("img/assessment-bg.jpg");
+        }
+
+        #quiz-container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        #result {
+            margin-bottom: 20px;
+        }
+
+        #categoryselect {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Add this line */
+        }
+
+        #categoryselect h3 {
+            font-size: 45px;
+            font-weight: 600;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #122e01;
+            text-align: center;
+            margin-bottom: 20px;
+            /* Add this line */
+        }
+
+        #categoryselect select {
+            width: 30%;
+            font-size: 35px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-bottom: 20px;
+            /* Add this line */
+        }
+
+        #quiz-complete{
+            font-size: 70px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #ff5e0d;
+        }
+
+        #return-to-index{
+            background-color: #ff5e0d;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="music-btn">
+        <button id="play-music-btn">Play Music</button>
+    </div>
+    
+    <script>
+        var audio = new Audio('bgmusic.mp3');
+        audio.loop = true;
+      
+        var isPlaying = false;
+        var button = document.getElementById('play-music-btn');
+      
+        function toggleMusic() {
+          if (!isPlaying) {
+            audio.play();
+            isPlaying = true;
+            button.textContent = 'Pause Music';
+          } else {
+            audio.pause();
+            isPlaying = false;
+            button.textContent = 'Play Music';
+          }
+        }
+      
+        button.addEventListener('click', toggleMusic);
+      </script>
+
+    <div id="categoryselect">
+        <h3>SELECT THE CATEGORY OF QUESTION</h3>
+        <select id="category-select">
+            <option value="parallelogram">Parallelogram</option>
+            <option value="proportion">Proportion</option>
+            <option value="similarities">Similiraties of Figures</option>
+            <!-- Add more categories here -->
+        </select>
+
+        <select id="level-select">
+            <option value="easy">Easy</option>
+            <option value="average">Average</option>
+            <option value="difficult">Difficult</option>
+        </select>
+
+        <button id="start-quiz" onclick="startQuiz()">Start Quiz</button>
+        <button id="return-to-index" onclick="returnToIndex()">Return</button>
+        <script>
+            function returnToIndex() {
+            // Use window.location to navigate to index.html
+            window.location.href = 'home.html';
+            }
+        </script>
+    </div>
+
+    <div id="quiz-container" style="display: none;">
+        <h1>True or False Questionnaire</h1>
+        <p id="question"></p>
+        <button id="option-0" onclick="checkAnswer(0)"></button>
+        <button id="option-1" onclick="checkAnswer(1)"></button>
+        <button id="option-2" onclick="checkAnswer(2)"></button>
+        <button id="option-3" onclick="checkAnswer(3)"></button>
+        <p id="result"></p>
+        <p id="explanation"></p>
+        <button id="next" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script>
+        const categories = {
+            parallelogram: {
+                easy: [
+                    { question: 'Parallelograms always have opposite sides equal in length?', options: ['True', 'False', ], correctAnswer: 0, explanation: 'Opposite sides of a parallelogram are always parallel and congruent, meaning they have the same length.' },
+                  { question: 'Parallelograms always have opposite angles equal in measure.?', options: ['True', 'False', ], correctAnswer: 1, explanation: ' Opposite angles of a parallelogram are supplementary, meaning they add up to 180 degrees. This doesnt necessarily mean they have the same measure. ' },
+                   { question: 'All quadrilaterals with opposite sides equal in length are parallelograms.?', options: ['True', 'False', ], correctAnswer: 1, explanation: 'While opposite sides being equal is a characteristic of parallelograms, its not a definitive one. Other quadrilaterals, such as rhombuses and rectangles, also have opposite sides equal in length.'},
+                  { question: 'All quadrilaterals with opposite angles equal in measure are parallelograms.?', options: ['True', 'False', ], correctAnswer: 1, explanation: 'Opposite angles being supplementary is a characteristic of parallelograms, but its not a definitive one. Other quadrilaterals, such as trapezoids, also have opposite angles equal in measure.' },
+                   { question: 'Parallelograms have two pairs of parallel sides.?', options: ['True', 'False', ], correctAnswer: 0, explanation: 'By definition, a parallelogram is a quadrilateral with two pairs of parallel sides.' },
+                   { question: 'Parallelograms have two pairs of congruent angles.?', options: ['True', 'False', ], correctAnswer: 1, explanation: 'The diagonals of a parallelogram intersect at a point where they divide each other into two segments of equal length.' },
+                   { question: 'The area of a parallelogram is equal to the height multiplied by the base.?', options: ['True', 'False', ], correctAnswer: 0, explanation: 'The area of any quadrilateral, including a parallelogram, can be calculated using the formula area = base × height.' }, 
+                  { question: 'All parallelograms are rectangles.?', options: ['True', 'False', ], correctAnswer: 1, explanation: 'Rectangles are a specific type of parallelogram, characterized by having all four angles equal to 90 degrees. Not all parallelograms have right angles.' },
+                   { question: ' Square is a quadrilateral which has four equal sides and four right angles.?', options: ['True', 'False', ], correctAnswer: 0, explanation: ' A quadrilateral with equal sides and right angles is called a square. a form having four equal-length sides.' },
+                   { question: 'Trapezoid is quadrilateral in the list below and has two sets of parallel sides.?', options: ['True', 'False', ], correctAnswer: 1, explanation: 'A trapezoid is a quadrilateral with parallel bases and non-parallel legs that is determined by the distance measured parallel between the bases.' },
+                   { question: ' A rectangle has two pairs of equal sides. In a parallelogram, there are two equal-angle pairs in it, and the two sides are parallel to each other.?', options: ['True', 'False', ], correctAnswer: 0, explanation: ' The diagonals of a rectangle are equal and intersect each other according to their characteristics.' },
+                   { question: 'Square is a rectangle that is referred to as a rhombus.?', options: ['True', 'False', ], correctAnswer: 0, explanation: 'The diagonals of a rectangle are equal and intersect each other according to their characteristics.' },
+                   { question: ' Rhombus and square are equilateral in quadrilateral shape.?', options: ['True', 'False', ], correctAnswer: 0, explanation: ' Shapes having equal sides, like squares with four equal sides and rhombus with four equal sides, are referred to as parallel in geometry.' },
+                    { question: ' Quadrilateral with one pair of parallel sides is a parallelogram.?', options: ['True', 'False', ], correctAnswer: 0, explanation: '  A quadrilateral with one pair of parallel sides is a trapezoid, while a parallelogram must have two pairs of parallel sides.' },
+                    { question: ' The opposite angles of parallelogram are the same measurement.?', options: ['True', 'False', ], correctAnswer: 0, explanation: '  A parallelogram is a quadrilateral with opposite sides that are parallel. Additionally, the opposite angles of a parallelogram are congruent; this is one of the defining properties of a parallelogram. ' },
+                ], 
+                average: [
+                    { question: 'The following statement is a property of all parallelograms. EXCEPT ONE.?', options: ['The diagonals bisect each other.', 'The opposite sides are congruent.', 'The consecutive angles are complementary.', 'The consecutive angles are supplementary.'], correctAnswer: 2, explanation: ' Every parallelogram has diagonals that cut through each other, opposite sides that are congruent, and following, different angles. These are the basic characteristics of parallelogram.', level: 'average' },
+                    { question: ' The following statement is NOT a property of all rhombus. EXCEPT ONE.?', options: ['The diagonals bisect each other.', 'The opposite sides are incongruent.', 'The diagonals are perpendicular.', 'The consecutive angles are complementary.'], correctAnswer: 2, explanation: 'These characteristics compose a rhombus, which is a unique type of parallelogram that has perpendicular diagonal intersections, all four sides are congruent, and all opposite angles are congruent.', level: 'average' },
+                    { question: ' It is a property of midsegments that can be directly proven using the concept of similar triangles.?', options: ['A midsegment is opposite to one of the sides of the triangle.', 'A midsegment is half as long as the side of the triangle that it is parallel to.', 'A midsegment connects the midpoints of two non-adjacent sides of the triangle.', 'A midsegment is parallel to one of the sides of the triangle.'], correctAnswer: 3, explanation: 'The concept of similar triangles, created by dividing a triangle’s sides, is directly applied to proving the parallel relationship between the midsegment and the corresponding side.', level: 'average' },
+                    { question: 'What is the area formula for a parallelogram Using the midline theorem, what other properties can be deduced?', options: ['Midsegments of a triangle are congruent.', 'Midsegments of a triangle are bisectors of the median drawn from a vertex to the opposite side.', 'Midsegments of a triangle divide the perimeter of the triangle into two equal parts.', 'Midsegment is parallel to one of the sides of the triangle.'], correctAnswer: 2, explanation: 'The midsegments, which are half as long as the sides they are parallel to, divide the triangle’s perimeter into two equal segments, despite not being congruent.', level: 'average' },
+                    { question: 'Which two opposite angles of a trapezoid are related to each other?', options: ['They are congruent.', 'They are complementary.', 'They are supplementary.', 'They are equal in measure.'], correctAnswer: 2, explanation: ' The opposite angles of a trapezoid are supplementary, meaning they add up to 180 degrees. This property is a consequence of the fact that one pair of sides of a trapezoid is parallel.', level: 'average' },
+                    { question: ' What is the relationship between diagonals on a kite?', options: ['They are congruent.', 'They are perpendicular.', 'They are bisectors of each other.', 'They are equal in length.'], correctAnswer: 1, explanation: ' A kite\'s diagonals meet at a straight angle since they are perpendicular to one another. A characteristic that sets kites different is this one.', level: 'average' },
+                    { question: ' A quadrilateral has opposite sides equal in length and opposite angles equal in measure. What type of quadrilateral is it?', options: ['Rectangle', 'Square', 'Rhombus.', 'Parallelogram.'], correctAnswer: 3, explanation: 'Opposite sides being equal in length and opposite angles being equal in measure are defining properties of a parallelogram. Rectangles, squares, and rhombuses are all special types of parallelograms that have additional properties.', level: 'average' },
+                    { question: '  If a quadrilateral has one pair of parallel sides, it must be..?', options: ['A parallelogram', 'A trapezoid.', 'A rectangle', 'A square.'], correctAnswer: 1, explanation: ' A trapezoid is a quadrilateral with exactly one pair of parallel sides. Parallelograms have two pairs of parallel sides.', level: 'average' },
+                    // Add more average level questions
+                ],
+                difficult: [
+                    { question: 'The measure of two consecutive sides of a parallelogram is 3m and 9m, respectively. What is the perimeter of the parallelogram?', options: ['27m', '33m', '36m', '24m'], correctAnswer: 3, explanation: 'P = 2(a+b)', level: 'difficult' },
+                    { question: 'An isosceles trapezoid with a diagonal that measures 63 cm and one leg measures 39 cm. What is the length of the other diagonal?', options: ['63cm', '56cm', '102cm', '35cm'], correctAnswer: 0, explanation: 'The base angles of an isosceles trapezoid are congruent, therefore if one diagonal measures 63 cm, then the other diagonal is also 63 cm.', level: 'difficult' },
+                    { question: 'Parallelogram ABCD. If DC = 3x-2, AB = 2x+9, and CB = 5x+4, find DA.', options: ['98', '109', '124', '145'], correctAnswer: 1, explanation: 'DC = AB	3x-12 = 2x+9 ,3x-2x = 9+12	X = 21,DA = CB,DA = 5x+4,DA = 5(21)+4,DA = 105+4,DA = 109', level: 'difficult' },
+                    { question: 'Quadrilateral ABCD is a parallelogram. If angle A = 80, what is angle B?', options: ['80', '45', '100', '90'], correctAnswer: 2, explanation: '<A + <B = 180	80 + <B = 180	<B = 180 - 80	<B = 100', level: 'difficult' },
+                    { question: 'In a parallelogram, the lengths of consecutive sides are in the ratio 3:4. If the perimeter is 28 units, find the length of each side.', options: ['5 units', '6 units', '7 units', '8 units'], correctAnswer: 2, explanation: 'Let the common ratio be x. So, the sides are 3x, 4x, 3x, and 4x. The perimeter is 14x = 28 units, so x = 2. Hence, the sides are 6, 8, 6, and 8 units.', level: 'difficult' },
+                    // Add more difficult level questions
+                ],
+            },
+
+            proportion: {
+                easy: [
+                { question: 'If two triangles are similar, their corresponding sides are proportional.', options: ['True', 'False', ], correctAnswer: 0, explanation: 'Similarity in triangles means that the corresponding side ratios are equal.' },
+                  { question: 'Two triangles with one pair of congruent angles are always similar.?', options: ['True', 'False', ], correctAnswer: 1, explanation: 'Congruent angles alone do not guarantee similarity. Two triangles are similar only if all corresponding angles are congruent' },
+                  { question: ' If two triangles have the same ratio of corresponding side lengths, they are similar.', options: ['True', 'False', ], correctAnswer: 0, explanation: 'This is the same as stating that the ratio of corresponding side lengths is constant. Its a necessary and sufficient condition for similarity.' },
+                  { question: 'If two triangles have two congruent sides, they are always similar.', options: ['True', 'False', ], correctAnswer: 1, explanation: 'Two congruent sides do not guarantee similarity; a third side comparison is necessary to determine similarity.' },
+                  { question: 'A triangle with two equal sides is always isosceles.', options: ['True', 'False', ], correctAnswer: 0, explanation: 'An isosceles triangle has two sides of equal length.' },
+                   { question: 'A triangle with all three sides equal in length is also an equilateral triangle.', options: ['True', 'False', ], correctAnswer: 0, explanation: 'While congruent corresponding angles are a necessary condition for similarity, they are not sufficient. Two triangles are similar if they have the same shape, meaning their corresponding sides are proportional.' },
+                   { question: 'Two triangles are similar if and only if their corresponding angles are congruent.', options: ['True', 'False', ], correctAnswer: 1, explanation: 'While equal base and height suggest a proportional relationship, similarity requires that all corresponding side ratios are equal.' },
+                   { question: 'The ratio of corresponding side lengths in two similar triangles is constant.', options: ['True', 'False', ], correctAnswer: 0, explanation: 'This is the fundamental property of similar triangles. The ratio of corresponding side lengths is constant, often referred to as the scale factor.' },
+                   { question: 'If two triangles have the same area, they are similar.', options: ['True', 'False', ], correctAnswer: 1, explanation: 'Two triangles can have the same area without being similar. Similarity depends on the shape of the triangles, not only their area.' },
+                   { question: 'Triangles are the only shapes to which the Proportion Fundamental Theorem applies.', options: ['True', 'False', ], correctAnswer: 1, explanation: 'The Proportion Fundamental Theorem can also be applied to other shapes, such as quadrilaterals and circles.' },
+                // Add questions for the proportion category
+                 ],
+                average: [
+                { question: 'A parallelogram has a ratio of adjacent sides of 3:2. If the perimeter of the parallelogram is 50 centimeters, what is the length of the longer side in centimeters?', options: ['15 centimeters', '20 centimeters', '25 centimeters', '30 centimeters'], correctAnswer: 0, explanation: ' Let the lengths of the adjacent sides be 3x and 2x centimeters. Since opposite sides of a parallelogram are equal, the perimeter is 2(3x+2x)=50. Solving for x, we get x=5. Therefore, the length of the longer side is 3x=3*5=15 centimeters.' },
+                 { question: 'A parallelogram has a ratio of adjacent sides of 3:2. If the perimeter of the parallelogram is 50 centimeters, what is the length of the longer side in centimeters?', options: ['15 centimeters', '20 centimeters', '25 centimeters', '30 centimeters'], correctAnswer: 0, explanation: ' Let the lengths of the adjacent sides be 3x and 2x centimeters. Since opposite sides of a parallelogram are equal, the perimeter is 2(3x+2x)=50. Solving for x, we get x=5. Therefore, the length of the longer side is 3x=3*5=15 centimeters.' },
+                 { question: 'A trapezoid has a ratio of bases of 4:3. If the sum of the bases is 20 centimeters, what is the length of the longer base in centimeters?', options: ['8 centimeters', '10 centimeters', '12 centimeters', '16 centimeters'], correctAnswer: 3, explanation: '  Let the lengths of the bases be 4x and 3x centimeters. The sum of the bases is 4x+3x=20. Solving for x, we get x=4. Therefore, the length of the longer base is 4x=4*4=16 centimeters.' },
+                 { question: 'A rhombus has a ratio of diagonals of 5:3. If the area of the rhombus is 36 square centimeters, what is the length of the longer diagonal in centimeters?', options: ['6 centimeters', '9 centimeters', '12 centimeters', '10 centimeters'], correctAnswer: 3, explanation: ' Let the lengths of the diagonals be 5x and 3x centimeters. The area of a rhombus is given by half the product of its diagonals, so (1/2)5x3x=36. Solving for x, we get x=2. Therefore, the length of the longer diagonal is 5x=5*2=10 centimeters.' },
+                 { question: 'A kite has a ratio of diagonals of 7:6. If the perimeter of the kite is 60 centimeters, what is the length of the longer diagonal in centimeters?', options: ['21 centimeters', '12 centimeters', '14 centimeters', '16 centimeters'], correctAnswer: 0, explanation: ' Let the lengths of the diagonals be 7x and 6x centimeters. The perimeter of a kite is the sum of all its sides, so 2(7x+6x)=60. Solving for x, we get x=3. Therefore, the length of the longer diagonal is 7x=7*3=21 centimeters.' },
+                  { question: 'A mixture of paint and thinner has a ratio of 3:1. If I have 9 liters of the mixture, how many liters of paint are there?', options: ['3 liters', '4.5 liters', '6 literss', '9 liters'], correctAnswer: 2, explanation: ' The total ratio of the mixture is 3+1=4. Since there are 9 liters of the mixture, each part of the ratio represents 9/4=2.25 liters. Therefore, there are 3*2.25=6.75 liters of paint in the mixture.' },
+                  { question: 'A scale model of a building is 1:20. This means that every 1 centimeter on the model corresponds to 20 centimeters in the real building. If the height of the building is 100 meters, what is the height of the scale model in centimeters?', options: ['5 centimeters', '2.5 centimeters', '1.25 centimeters', '0.625 centimeters'], correctAnswer: 0, explanation: ' Since every 1 centimeter on the model represents 20 centimeters in the real building, a height of 100 meters in the real building corresponds to 100/20=5 centimeters on the scale model.' },
+                  { question: ' A rectangular flower bed has a length-to-width ratio of 5:3. If the area of the flower bed is 60 square meters, what is the width of the flower bed in meters?', options: ['6 meters', '8 meters', '10 meters', '12 meters'], correctAnswer: 0, explanation: '  Let the length of the flower bed be 5x meters and the width be 3x meters. The area of the flower bed is given by length and width, so 5x3x=60. Solving for x, we get x=2. Therefore, the width of the flower bed is 3x=3*2=6 meters.' },
+                  { question: 'A rectangular garden has a length-to-width ratio of 4:3. If the perimeter of the garden is 60 meters, what is the length of the garden in meters?', options: ['15 meters', '20 meters', '25 meters', '30 meters'], correctAnswer: 1, explanation: ' Let the length of the garden be 4x meters and the width be 3x meters. The perimeter is the sum of all the sides, so 2(4x+3x)=60. Solving for x, we get x=5. Therefore, the length of the garden is 4x=4*5=20 meters.' },
+                  { question: 'A line is drawn parallel to one side of a triangle dividing the other two sides into segments with lengths 6 cm and 9 cm. The ratio of the lengths of the original side to the segment is:', options: ['2:3', '3:2', '1:2' , '2:1'], correctAnswer:1, explanation: 'According to the Proportion Fundamental Theorem, when a line is drawn parallel to one side of a triangle, it divides the other two sides in the same ratio. Therefore, the ratio of the lengths of the original side to the segment is ' },
+                    // Add more average level questions
+                ],
+                difficult: [
+                { question: 'In a triangle with side lengths 4 cm, 6 cm, and 8 cm, which side has the smallest ratio to the longest side?', options: ['4m', '6m', '8m', '7m'], correctAnswer: 0, explanation: 'To determine the side with the smallest ratio to the longest side, divide each side length by the length of the longest side (8 cm). The ratios are 4 cm / 8 cm = 0.5, 6 cm / 8 cm = 0.75, and 8 cm / 8 cm = 1.0. Since 0.5 is the smallest ratio, the side with the smallest ratio to the longest side is 4 cm.' },
+                   { question: 'Janzel has 30 pesos, she bought 5pcs of ballpen. If she has 50 pesos, how many pcs of ballpen can she buy?', options: ['7pcs', '5pcs', '8pcs', '10pcs'], correctAnswer: 2, explanation: '30  =  50      5       x   (30*x)  = (5*50)     30x = 250    30      30 x = 8.33 X = 8' },
+                   { question: 'Danica who is 162cm tall is 8cm tall in the photo while her brother, Justine, is 6cm tall. What is Justine’s actual height?', options: ['122.25cm', '130cm', '100cm', '125cm'], correctAnswer: 0, explanation: '163  =  x      8         6  (163*6)  = (8*x)    978 = 8x    8      8x = 122.25 ' },
+                   { question: 'A recipe for a cake calls for 2 cups of flour for every 3 cups of sugar. If you want to make a cake with 6 cups of sugar, how many cups of flour do you need? ', options: ['6 cups', '3 cups', '4 cups', '8 cups'], correctAnswer: 2, explanation: 'The ratio of flour to sugar is 2:3. If you want to make a cake with 6 cups of sugar, you need to use (2/3)*6 = 4 cups of flour.' },
+                   { question: 'A map has a scale of 1 cm:10 km. If the distance between two cities on the map is 5 cm, what is the actual distance between the cities?', options: ['650km', '500m', '480km', '700m'], correctAnswer: 1, explanation: 'The scale of the map is 1 cm:10 km. Therefore, 5 cm on the map represents 50 km in real life. Multiplying 50 km by 10 gives us the actual distance between the cities, which is 500 km.' },
+                ],
+            },
+            similarities:{
+                easy:[
+                { question: 'All geometric proofs must be based on the Pythagorean theorem.', options: ['True', 'False', ], correctAnswer: 1, explanation: 'The Pythagorean theorem is a fundamental theorem in geometry, but it is not the only one used in geometric proofs. Numerous other theorems and principles, such as the parallel postulate, angle relationships, and congruence properties, play crucial roles in geometric reasoning.' },
+                  { question: 'If two triangles have SSS (side-side-side) similarity, they are always congruent..', options: ['True', 'False', ], correctAnswer: 0, explanation: 'SSS similarity implies that two triangles have all three pairs of corresponding sides equal in length. This is the most definitive condition for congruence, as it guarantees that the triangles have the same size and shape.' },
+                  { question: 'Triangles with all corresponding sides congruent are always congruent.', options: ['True', 'False', ], correctAnswer: 0, explanation: ' If two triangles have all corresponding sides congruent, they are always congruent. This is known as the SSS (Side-Side-Side) congruence criterion.' },
+                  { question: 'Two triangles are congruent if they have two pairs of congruent angles and one pair of congruent sides.', options: ['True', 'False', ], correctAnswer: 0, explanation: 'The ASA (Angle-Side-Angle) congruence postulate states that two triangles are congruent if two corresponding angles and the included side are equal in measure. The AAS (Angle-Angle-Side) congruence postulate states that two triangles are congruent if two corresponding angles and a non-included side are equal in measure.' },
+                  { question: 'Two triangles are congruent if they are reflections of each other.', options: ['True', 'False', ], correctAnswer: 0, explanation: 'Reflected triangles are congruent because the reflection process preserves the shape and size of the original figure.' },
+                   { question: 'The only way to determine if two triangles are similar is to use the AA, SAS, or SSS Similarity Theorems.', options: ['True', 'False', ], correctAnswer: 1, explanation: 'There are other ways to determine if two triangles are similar, such as using the AA Similarity Postulate.' },
+                   { question: 'Two triangles are then considered similar if only two pairs of angles are congruent.', options: ['True', 'False', ], correctAnswer: 1, explanation: 'According to AA similarity, two triangles are then considered similar if all three pairs of angles are congruent.' },
+                   { question: ' If all the three sides of a triangle are in proportion to the two sides of another triangle, then the two triangles are similar. ', options: ['True', 'False', ], correctAnswer: 1, explanation: ' Based on SSS similarity, If all the three sides of a triangle are in proportion to the three sides of another triangle, then the two triangles are similar. ' },
+                   { question: 'Similar triangles and congruent triangles are the same', options: ['True', 'False', ], correctAnswer: 1, explanation: 'Similar triangles have the same shape but sizes may vary but congruent triangles have the same shape and size.' },
+                   { question: 'Similarity of figures is only based on their size. ', options: ['True', 'False', ], correctAnswer: 1, explanation: 'Similarity of figures is based on both their shape and size. Two figures must have the same shape and their sides must be proportional to be considered similar. ' },
+                ],
+        
+                average:[
+                { question: 'Two triangles have corresponding angles that measure 45 degrees, 60 degrees, and 75 degrees, and 50 degrees, 65 degrees, and 75 degrees, respectively. By which similarity theorem can you determine that the triangles are similar?', options: ['AA Similarity Theorem', 'SSS Similarity Theorem', 'SAS Similarity Theorem', 'AAS Similarity Theorem'], correctAnswer: 0, explanation: ' Two pairs of corresponding angles are congruent (45 degrees = 50 degrees, 60 degrees = 65 degrees), so the triangles are similar by the AA Similarity Theorem.' },
+              { question: 'Which of the following similarity theorems states that two triangles are similar if two pairs of corresponding angles are congruent?', options: ['AA Similarity Theorem', 'SSS Similarity Theorem', 'SAS Similarity Theorem', 'AAS Similarity Theorem'], correctAnswer: 0, explanation: ' The AA Similarity Theorem states that two triangles are similar if two pairs of corresponding angles are congruent. This means that the measures of two corresponding angles in the two triangles are equal' },
+              { question: 'Two rectangles have corresponding side lengths of 6 and 8 centimeters, and 3 and 4 centimeters, respectively. Are the rectangles similar?', options: ['Yes, by the AA Similarity Theorem', 'Yes, by the SSS Similarity Theorem', 'No, because the corresponding angles are not congruent.', 'No, because the corresponding side lengths are not proportional.'], correctAnswer: 1, explanation: 'The corresponding side lengths of the rectangles are in proportion (6:3, 8:4), so the rectangles are similar by the SSS Similarity Theorem.' },
+              { question: 'Two polygons are similar. Which of the following statements must be true about their corresponding angles?', options: ['They must be congruent.', 'They must be supplementary.', 'They must be complementary.', 'They must be proportional.'], correctAnswer: 0, explanation: ' Similar figures have corresponding angles that are congruent. This means that the measures of corresponding angles in similar figures are equal.' },
+              { question: 'What triangles are considered polygons that have the same shape but not the same size?', options: ['Triangles that have exactly the same size and shape', 'Triangles that are only the same size', 'Triangles that are only the same shape', 'None of the above'], correctAnswer: 0, explanation: ' Similar triangles will be the same shape but not necessarily the same size. Similar triangles may either be enlargements or reductions of each other.' },
+              { question: 'What are Congruent triangles?', options: ['AA Similarity Theorem', 'SSS Similarity Theorem', 'SAS Similarity Theorem', 'AAS Similarity Theorem'], correctAnswer: 0, explanation: ' If two triangles have the same size and shape they are called congruent triangles. If we flip, turn, or rotate one of two congruent triangles they are still congruent.' },
+                { question: 'The following are congruence theorems for right triangles, except one.', options: ['Leg-Leg Theorem', 'Hypotenuse-Leg Theorem', 'Angle-Angle Theorem', 'Hypotenuse-Angle Theorem'], correctAnswer: 2, explanation: 'Regarding right triangles, there are four theorems that prove congruence. They are the leg-leg theorem, the hypotenuse-leg theorem, the hypotenuse-angle theorem, and the leg-angle theorem.' },
+                { question: 'Two triangles are said to be _______ triangles when all three of their sides are the same length and all three of their angles are equal. ', options: ['Supplementary', ' Complementary', 'Congruent', 'Right'], correctAnswer: 2, explanation: 'Two triangles are said to be congruent triangles when all three of their sides are the same length and all three of their angles are equal. ' },
+                { question: 'If the lengths of the hypotenuse and a leg of a right triangle are proportional to the corresponding parts of another right triangle, then the triangles are _______.', options: ['Congruent', 'Acute', 'Right', 'Similar'], correctAnswer: 3, explanation: ' e similar if the lengths of the hypotenuse and a leg of a right triangle are proportional to the corresponding parts of another right triangle' },
+                { question: ' If two circles have different radii, can they be similar? ', options: ['Yes', 'No', 'Maybe', 'It dependes'], correctAnswer: 0, explanation: ' Two circles can be similar even if they have different radii, as long as they have the same shape. ' },
+                { question: 'How do you determine if two figures are similar?', options: ['By comparing their areas', 'By comparing their perimeters ', 'By comparing their corresponding side lengths and angles', 'By comparing their shapes only'], correctAnswer: 2, explanation: ' This is the method for determining similarity between figures in geometry.' },
+                ],
+                difficult:[
+                { question: 'Two triangles are similar. The first triangle has side lengths of 3 cm, 4 cm, and 5 cm. The second triangle has a side length of 9 cm. Find the length of the second triangles shortest side.', options: ['12cm', '24cm', '36cm', '6cm'], correctAnswer: 0, explanation: 'We can use the SAS Similarity theorem to solve this problem. We know that the two triangles are similar, so we know that the ratio of their corresponding sides is constant.' },
+                  { question: 'Two sides of a triangle are of lengths 5 cm and 1.5 cm. The length of the third side of the triangle cannot be', options: ['3.4 cm', '3.6cm', '3.8cm', '4.1cm'], correctAnswer: 0, explanation: 'If two sides of a triangle are of lengths 5 cm and 1.5 cm, then the length of the third side of the triangle cannot be 3.4 cm. Because the difference between the two sides of a triangle should be less than the third side.' },
+                  { question: 'Triangle ABC= with AB=5cm, BC= 7cm, and angle A= 60 degrees. Find the length of the side AC?', options: ['12.5cm', '6.24cm', '3.6cm', '6.25cm'], correctAnswer: 1, explanation: 'Use the Law of cosine to find angle C: where a,b, and c are the lengths of the sides opposite to angles A,B, and C Respectively, since angle C is acute, we know that cosine > 0, Therefore we can solve for AC: = 6.24 cm' },
+                  { question: 'Triangle ABC, AB = 5 cm, BC = 7 cm, and AC = 6 cm. In triangle PQR, PQ = 5 cm, QR = 6 cm, and PR = 7 cm. Are the two triangles congruent? If yes, which theorem can be used to prove it? ', options: ['AA Similarity Theorem', 'SSS Similarity Theorem', 'SAS Similarity Theorem', 'AAS Similarity Theorem'], correctAnswer: 1, explanation: 'The corresponding sides of the two triangles are equal in length.' },
+                  { question: ' In triangle ABC, AB = 5 cm, BC = 7 cm, and AC = 6 cm. In triangle PQR, PQ = 5 cm, QR = 7 cm, and PR = 6 cm. Are the two triangles congruent? If yes, which theorem can be used to prove it? ', options: ['AA Similarity Theorem', 'SSS Similarity Theorem', 'SAS Similarity Theorem', 'AAS Similarity Theorem'], correctAnswer: 0, explanation: 'We can use the SAS Similarity theorem to solve this problem. We know that the two triangles are similar, so we know that the ratio of their corresponding sides is constant.' },
+                ],
+            }
+            
+        };
+
+        let currentQuestion = 0;
+        let currentCategory;
+        let currentLevel;
+        let userAnswered = false;
+
+        function showQuestion() {
+            const q = categories[currentCategory][currentLevel][currentQuestion];
+            document.getElementById('question').textContent = q.question;
+            document.getElementById('option-0').textContent = q.options[0];
+            document.getElementById('option-1').textContent = q.options[1];
+            document.getElementById('option-2').textContent = q.options[2];
+            document.getElementById('option-3').textContent = q.options[3];
+            document.getElementById('explanation').textContent = '';
+            document.getElementById('result').textContent = '';
+            // Enable the "Next" button by default
+            document.getElementById('next').disabled = false;
+            // Reset the userAnswered flag
+            userAnswered = false;
+        }
+
+        function checkAnswer(answer) {
+            const q = categories[currentCategory][currentLevel][currentQuestion];
+            if (answer === q.correctAnswer) {
+                document.getElementById('result').textContent = 'Correct!';
+                document.getElementById('explanation').textContent = q.explanation;
+            } else {
+                document.getElementById('result').textContent = 'Incorrect.';
+                document.getElementById('explanation').textContent = q.explanation;
+            }
+            // Set the userAnswered flag to true
+            userAnswered = true;
+            // Enable the "Next" button
+            document.getElementById('next').disabled = false;
+        }
+
+        function nextQuestion() {
+            // Check if the user has answered the current question before proceeding
+            if (!userAnswered) {
+                alert("Please answer the question before moving to the next one.");
+                return;
+            }
+
+            currentQuestion++;
+            if (currentQuestion < categories[currentCategory][currentLevel].length) {
+                showQuestion();
+            } else {
+                document.getElementById('quiz-container').innerHTML = '<p id="quiz-complete">Quiz completed!</p>';
+            }
+        }
+
+        function startQuiz() {
+            currentCategory = document.getElementById('category-select').value;
+            currentLevel = document.getElementById('level-select').value;
+
+            // Filter questions based on the selected level
+            const filteredQuestions = categories[currentCategory][currentLevel];
+
+            // Reset currentQuestion to 0 for a new quiz
+            currentQuestion = 0;
+
+            // Update questions with the filtered set
+            categories[currentCategory][currentLevel] = filteredQuestions;
+
+            // You can customize the quiz based on the selected category and level if needed
+            // For now, just show the first question
+            showQuestion();
+
+            document.getElementById('categoryselect').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
